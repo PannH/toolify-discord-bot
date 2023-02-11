@@ -25,6 +25,7 @@
    },
    "dependencies": {
       "canvas": "^2.11.0",
+      "date-fns": "^2.29.3",
       "discord.js": "^14.7.1",
       "dotenv": "^16.0.3",
       "tinycolor2": "^1.6.0"

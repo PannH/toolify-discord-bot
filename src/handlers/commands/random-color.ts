@@ -4,6 +4,7 @@ import { createCanvas } from 'canvas';
 import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, AttachmentBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, codeBlock, type StringSelectMenuInteraction } from 'discord.js';
 import { randomUUID } from 'crypto';
 import { randomInteger } from '../../functions';
+import { minutesToMilliseconds } from 'date-fns';
 
 export default new SlashCommand({
    name: 'random-color',
@@ -93,7 +94,8 @@ export default new SlashCommand({
    await updateMessage(randomColor);
 
    const componentCollector = interaction.channel.createMessageComponentCollector({
-      filter: (interaction) => Object.values(componentIds).includes(interaction.customId)
+      filter: (interaction) => Object.values(componentIds).includes(interaction.customId),
+      time: minutesToMilliseconds(15)
    });
 
    componentCollector.on('collect', async (componentInteraction) => {
@@ -109,7 +111,6 @@ export default new SlashCommand({
                case 'any': {
 
                   randomColor = tinycolor.random();
-
                   break;
 
                }
