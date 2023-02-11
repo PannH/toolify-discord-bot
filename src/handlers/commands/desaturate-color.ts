@@ -62,7 +62,6 @@ export default new SlashCommand({
             codeBlock(`HSL          | ${desaturatedColor.toHslString()}`) +
             codeBlock(`HSV          | ${desaturatedColor.toHsvString()}`)
          )
-         .setFooter({ text: 'Some colors may not be affected by the saturation.' })
          .setImage('attachment://desaturate_color.png');
 
       const updateDesaturationButtonsRow = new ActionRowBuilder()
