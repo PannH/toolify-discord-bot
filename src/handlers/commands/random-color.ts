@@ -41,7 +41,7 @@ export default new SlashCommand({
             codeBlock(`HSV | ${color.toHsvString()}`)
          )
          .setFooter({ text: 'Use the select menu to change the color style.' })
-         .setImage('attachment://color.png');
+         .setImage('attachment://random_color.png');
 
       const changeStyleSelectMenuRow = new ActionRowBuilder()
             .setComponents(
@@ -79,7 +79,7 @@ export default new SlashCommand({
                   .setStyle(ButtonStyle.Primary)
             );
 
-      const colorImageAttachment = new AttachmentBuilder(canvas.toBuffer(), { name: 'color.png' });
+      const colorImageAttachment = new AttachmentBuilder(canvas.toBuffer(), { name: 'random_color.png' });
 
       await interaction.editReply({
          embeds: [colorGeneratorEmbed],
