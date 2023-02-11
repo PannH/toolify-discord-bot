@@ -100,6 +100,12 @@ export default new SlashCommand({
 
    componentCollector.on('collect', async (componentInteraction) => {
 
+      if (componentInteraction.user.id !== interaction.user.id)
+         return void componentInteraction.reply({
+            content: 'You must type the command yourself to use that.',
+            ephemeral: true
+         });
+
       switch (componentInteraction.customId) {
 
          case componentIds['REGENERATE']: {
