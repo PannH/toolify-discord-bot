@@ -52,15 +52,25 @@ export default new SlashCommand({
 
       const saturateColorEmbed = new EmbedBuilder()
          .setColor(0x2f3136)
-         .setTitle(`Saturate Color (current saturation: ${currentSaturationPercentage}%)`)
+         .setTitle(`Saturate Color`)
+         .setDescription(
+            codeBlock(`Base Color | ${baseColor.toHexString()}`) +
+            '\u200b' +
+            codeBlock(`Saturation | ${currentSaturationPercentage}%`) +
+            codeBlock(`HEX        | ${saturatedColor.toHexString()}`) +
+            codeBlock(`RGB        | ${saturatedColor.toRgbString()}`) +
+            codeBlock(`HSL        | ${saturatedColor.toHslString()}`) +
+            codeBlock(`HSV        | ${saturatedColor.toHsvString()}`)
+         )
+         .setFooter({ text: 'Some colors may not be affected by the saturation.' })
          .setImage('attachment://saturate_color.png');
 
       const updateSaturationButtonsRow = new ActionRowBuilder()
          .setComponents(
             new ButtonBuilder()
                .setCustomId(componentIds['DECREASE'])
-               .setDisabled(currentSaturationPercentage - 20 < 0)
-               .setLabel('- 20%')
+               .setDisabled(currentSaturationPercentage - 10 < 0)
+               .setLabel('- 10%')
                .setStyle(ButtonStyle.Primary),
             new ButtonBuilder()
                .setCustomId(componentIds['SET'])
@@ -68,8 +78,8 @@ export default new SlashCommand({
                .setStyle(ButtonStyle.Primary),
             new ButtonBuilder()
                .setCustomId(componentIds['INCREASE'])
-               .setDisabled(currentSaturationPercentage + 20 > 100)
-               .setLabel('+ 20%')
+               .setDisabled(currentSaturationPercentage + 10 > 100)
+               .setLabel('+ 10%')
                .setStyle(ButtonStyle.Primary),
          );
 
@@ -104,7 +114,7 @@ export default new SlashCommand({
 
          case componentIds['DECREASE']: {
 
-            currentSaturationPercentage -= 20;
+            currentSaturationPercentage -= 10;
 
             const saturatedColor = baseColor.clone().saturate(currentSaturationPercentage);
       
@@ -118,7 +128,7 @@ export default new SlashCommand({
 
          case componentIds['INCREASE']: {
 
-            currentSaturationPercentage += 20;
+            currentSaturationPercentage += 10;
 
             const saturatedColor = baseColor.clone().saturate(currentSaturationPercentage);
       
@@ -156,7 +166,7 @@ export default new SlashCommand({
                time: minutesToMilliseconds(15)
             });
 
-            const saturationPercentage = Number(
+            const saturationPercentage = parseInt(
                modalSubmitInteraction.fields.getTextInputValue('SATURATION_PERCENTAGE')
             );
 
