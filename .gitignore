@@ -1,0 +1,9 @@
+# Build directory
+dist/
+
+# Node stuff
+node_modules/
+package-lock.json
+
+# Env config
+.env
