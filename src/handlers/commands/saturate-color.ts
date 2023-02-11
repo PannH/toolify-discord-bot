@@ -16,16 +16,17 @@ export default new SlashCommand({
    }]
 }, async (client, interaction) => {
 
-   await interaction.deferReply();
-
    const baseColor = tinycolor(
       interaction.options.getString('color')
    );
 
    if (!baseColor.isValid())
-      return interaction.editReply({
-         content: 'The color you specified is invalid.'
+      return interaction.reply({
+         content: 'The color you specified is invalid.',
+         ephemeral: true
       });
+
+   await interaction.deferReply();
 
    const componentIds = {
       'INCREASE': randomUUID(),
