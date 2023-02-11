@@ -1,4 +1,4 @@
-import { Client } from './classes';
+import { Client, Logger } from './classes';
 import dotenv from 'dotenv';
 import { ActivityType } from 'discord.js';
 
@@ -18,3 +18,9 @@ const client = new Client({
 client.login(process.env.CLIENT_TOKEN);
 
 client.handleEvents();
+
+process.on('uncaughtException', (error) => {
+
+   Logger.warn(`Uncaught exception: ${error.message}`);
+
+});
