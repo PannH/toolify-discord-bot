@@ -26,7 +26,7 @@ export default new SlashCommand({
          ephemeral: true
       });
 
-   await interaction.deferReply();
+   await interaction.deferReply()
 
    const componentIds = {
       'INCREASE': randomUUID(),
@@ -40,16 +40,15 @@ export default new SlashCommand({
 
       const WIDTH = 300;
       const HEIGHT = 50;
-      const SEPARATOR_WIDTH = 10;
 
       const canvas = createCanvas(WIDTH, HEIGHT);
       const ctx = canvas.getContext('2d');
 
       ctx.fillStyle = baseColor.toHexString();
-      ctx.fillRect(0, 0, (WIDTH / 2) - (SEPARATOR_WIDTH / 2), HEIGHT);
+      ctx.fillRect(0, 0, WIDTH / 2, HEIGHT);
 
       ctx.fillStyle = lightenedColor.toHexString();
-      ctx.fillRect(WIDTH / 2, 0, (WIDTH / 2) - (SEPARATOR_WIDTH / 2), HEIGHT);
+      ctx.fillRect(WIDTH / 2, 0, WIDTH / 2, HEIGHT);
 
       const lightenColorEmbed = new EmbedBuilder()
          .setColor(0x2f3136)

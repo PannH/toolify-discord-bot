@@ -19,7 +19,6 @@ export default new SlashCommand({
    const baseColor = tinycolor(
       interaction.options.getString('color')
    );
-
    if (!baseColor.isValid())
       return interaction.reply({
          content: 'The color you specified is invalid.',
@@ -40,16 +39,15 @@ export default new SlashCommand({
 
       const WIDTH = 300;
       const HEIGHT = 50;
-      const SEPARATOR_WIDTH = 10;
 
       const canvas = createCanvas(WIDTH, HEIGHT);
       const ctx = canvas.getContext('2d');
 
       ctx.fillStyle = baseColor.toHexString();
-      ctx.fillRect(0, 0, (WIDTH / 2) - (SEPARATOR_WIDTH / 2), HEIGHT);
+      ctx.fillRect(0, 0, WIDTH / 2, HEIGHT);
 
       ctx.fillStyle = saturatedColor.toHexString();
-      ctx.fillRect(WIDTH / 2, 0, (WIDTH / 2) - (SEPARATOR_WIDTH / 2), HEIGHT);
+      ctx.fillRect(WIDTH / 2, 0, WIDTH / 2, HEIGHT);
 
       const saturateColorEmbed = new EmbedBuilder()
          .setColor(0x2f3136)
