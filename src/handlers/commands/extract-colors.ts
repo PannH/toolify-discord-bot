@@ -17,6 +17,12 @@ export default new SlashCommand({
 
    const imageAttachment = interaction.options.getAttachment('image');
 
+   if (!imageAttachment?.contentType?.startsWith('image/'))
+      return interaction.reply({
+         content: 'You must specify an image.',
+         ephemeral: true
+      })
+
    await interaction.deferReply();
 
    const colors = (await getPaletteFromURL(imageAttachment.url, 5)).map((rgb) => tinycolor({ r: rgb[0], g: rgb[1], b: rgb[2] }));
