@@ -60,7 +60,8 @@ export default new SlashCommand({
          } catch (_) {
             
             await interaction.reply({
-               content: 'The result is too long for a Discord message.'
+               content: 'The result is too long for a Discord message.',
+               ephemeral: true
             })
 
          }
@@ -97,7 +98,8 @@ export default new SlashCommand({
          } catch (_) {
             
             await interaction.reply({
-               content: 'The result is too long for a Discord message.'
+               content: 'The result is too long for a Discord message.',
+               ephemeral: true
             })
 
          }
