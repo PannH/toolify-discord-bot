@@ -1,7 +1,7 @@
 import { SlashCommand } from '../../classes';
-import tinycolor, { type Instance as ColorInstance } from 'tinycolor2';
+import tinycolor from 'tinycolor2';
 import { createCanvas } from 'canvas';
-import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, AttachmentBuilder, codeBlock, ApplicationCommandOptionType, ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js';
+import { EmbedBuilder, AttachmentBuilder, codeBlock, ApplicationCommandOptionType } from 'discord.js';
 import { getPaletteFromURL } from 'color-thief-node';
 
 export default new SlashCommand({

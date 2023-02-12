@@ -1,9 +1,7 @@
 import { SlashCommand } from '../../classes';
-import tinycolor, { type Instance as ColorInstance } from 'tinycolor2';
+import tinycolor from 'tinycolor2';
 import { createCanvas } from 'canvas';
-import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, AttachmentBuilder, codeBlock, ApplicationCommandOptionType, ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js';
-import { randomUUID } from 'crypto';
-import { minutesToMilliseconds } from 'date-fns';
+import { EmbedBuilder, AttachmentBuilder, codeBlock, ApplicationCommandOptionType } from 'discord.js';
 
 export default new SlashCommand({
    name: 'convert-color',
