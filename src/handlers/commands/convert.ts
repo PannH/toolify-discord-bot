@@ -1,6 +1,6 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
-import { convert, type Temperature } from 'convert';
+import { convert, type Data } from 'convert';
 
 export default new SlashCommand({
    name: 'convert',
@@ -447,6 +447,160 @@ export default new SlashCommand({
          }, {
             name: 'Rankine',
             value: 'rankine'
+         }]
+      }]
+   }, {
+      name: 'data',
+      description: 'Convert data units.',
+      type: ApplicationCommandOptionType.Subcommand,
+      options: [{
+         name: 'value',
+         description: 'The value to convert.',
+         type: ApplicationCommandOptionType.Number,
+         required: true
+      }, {
+         name: 'from',
+         description: 'The value\'s unit.',
+         type: ApplicationCommandOptionType.String,
+         required: true,
+         choices: [{
+            name: 'Bits',
+            value: 'bits'
+         }, {
+            name: 'Bytes',
+            value: 'bytes'
+         }, {
+            name: 'Femtobits',
+            value: 'femtobits'
+         }, {
+            name: 'Femtobytes',
+            value: 'Femtobytes'
+         }, {
+            name: 'Gigabits',
+            value: 'gigabits'
+         }, {
+            name: 'Gigabytes',
+            value: 'gigabytes'
+         }, {
+            name: 'Hectobits',
+            value: 'hectobits'
+         }, {
+            name: 'Hectobytes',
+            value: 'hectobytes'
+         }, {
+            name: 'Kilobits',
+            value: 'kilobits'
+         }, {
+            name: 'Kilobytes',
+            value: 'kilobytes'
+         }, {
+            name: 'Megabits',
+            value: 'megabits'
+         }, {
+            name: 'Megabytes',
+            value: 'megabytes'
+         }, {
+            name: 'Microbits',
+            value: 'microbits'
+         }, {
+            name: 'Microbytes',
+            value: 'microbytes'
+         }, {
+            name: 'Millibits',
+            value: 'millibits'
+         }, {
+            name: 'millibytes',
+            value: 'millibytes'
+         }, {
+            name: 'Petabits',
+            value: 'petabits'
+         }, {
+            name: 'Petabytes',
+            value: 'petabytes'
+         }, {
+            name: 'Picobits',
+            value: 'picobits'
+         }, {
+            name: 'Picobytes',
+            value: 'picobytes'
+         }, {
+            name: 'Terabits',
+            value: 'terabits'
+         }, {
+            name: 'Terabytes',
+            value: 'terabytes'
+         }]
+      }, {
+         name: 'to',
+         description: 'The unit to convert the value to.',
+         type: ApplicationCommandOptionType.String,
+         required: true,
+         choices: [{
+            name: 'Bits',
+            value: 'bits'
+         }, {
+            name: 'Bytes',
+            value: 'bytes'
+         }, {
+            name: 'Femtobits',
+            value: 'femtobits'
+         }, {
+            name: 'Femtobytes',
+            value: 'Femtobytes'
+         }, {
+            name: 'Gigabits',
+            value: 'gigabits'
+         }, {
+            name: 'Gigabytes',
+            value: 'gigabytes'
+         }, {
+            name: 'Hectobits',
+            value: 'hectobits'
+         }, {
+            name: 'Hectobytes',
+            value: 'hectobytes'
+         }, {
+            name: 'Kilobits',
+            value: 'kilobits'
+         }, {
+            name: 'Kilobytes',
+            value: 'kilobytes'
+         }, {
+            name: 'Megabits',
+            value: 'megabits'
+         }, {
+            name: 'Megabytes',
+            value: 'megabytes'
+         }, {
+            name: 'Microbits',
+            value: 'microbits'
+         }, {
+            name: 'Microbytes',
+            value: 'microbytes'
+         }, {
+            name: 'Millibits',
+            value: 'millibits'
+         }, {
+            name: 'millibytes',
+            value: 'millibytes'
+         }, {
+            name: 'Petabits',
+            value: 'petabits'
+         }, {
+            name: 'Petabytes',
+            value: 'petabytes'
+         }, {
+            name: 'Picobits',
+            value: 'picobits'
+         }, {
+            name: 'Picobytes',
+            value: 'picobytes'
+         }, {
+            name: 'Terabits',
+            value: 'terabits'
+         }, {
+            name: 'Terabytes',
+            value: 'terabytes'
          }]
       }]
    }]
