@@ -42,17 +42,28 @@ export default new SlashCommand({
                .map((character) => character.charCodeAt(0).toString(2))
                .join(' ');
 
-         const binaryEncoderEmbed = new EmbedBuilder()
-            .setColor(0x2f3136)
-            .setTitle('Binary Encoder')
-            .setDescription(
-               codeBlock(string) +
-               codeBlock(`= ${binaryString}`)
-            );
+         let binaryEncoderEmbed: EmbedBuilder;
+         try {
 
-         await interaction.reply({
-            embeds: [binaryEncoderEmbed]
-         });
+            binaryEncoderEmbed = new EmbedBuilder()
+               .setColor(0x2f3136)
+               .setTitle('Binary Encoder')
+               .setDescription(
+                  codeBlock(string) +
+                  codeBlock(`= ${binaryString}`)
+               );
+
+               await interaction.reply({
+                  embeds: [binaryEncoderEmbed]
+               });
+
+         } catch (_) {
+            
+            await interaction.reply({
+               content: 'The result is too long for a Discord message.'
+            })
+
+         }
 
          break;
 
@@ -64,21 +75,32 @@ export default new SlashCommand({
 
          const string =
             binaryString
-               .split(' ')
+               .split(/ +/g)
                .map((binaryPart) => String.fromCharCode(parseInt(binaryPart, 2)))
                .join('');
 
-         const binaryEncoderEmbed = new EmbedBuilder()
-            .setColor(0x2f3136)
-            .setTitle('Binary Decoder')
-            .setDescription(
-               codeBlock(binaryString) +
-               codeBlock(`= ${string}`)
-            );
+         let binaryDecoderEmbed: EmbedBuilder;
+         try {
 
-         await interaction.reply({
-            embeds: [binaryEncoderEmbed]
-         });
+            binaryDecoderEmbed = new EmbedBuilder()
+               .setColor(0x2f3136)
+               .setTitle('Binary Decoder')
+               .setDescription(
+                  codeBlock(binaryString) +
+                  codeBlock(`= ${string}`)
+               );
+
+               await interaction.reply({
+                  embeds: [binaryDecoderEmbed]
+               });
+
+         } catch (_) {
+            
+            await interaction.reply({
+               content: 'The result is too long for a Discord message.'
+            })
+
+         }
 
          break;
 
