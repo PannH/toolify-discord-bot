@@ -30,6 +30,7 @@
       "color-thief-node": "^1.0.4",
       "convert": "^4.10.0",
       "date-fns": "^2.29.3",
+      "deepl-node": "^1.8.0",
       "discord.js": "^14.7.1",
       "dotenv": "^16.0.3",
       "getlorem": "^1.0.1",
