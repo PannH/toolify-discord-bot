@@ -3,7 +3,7 @@ import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.j
 import { convert, type Data } from 'convert';
 
 export default new SlashCommand({
-   name: 'convert',
+   name: 'convert-units',
    description: 'Make unit conversions.',
    options: [{
       name: 'length',
