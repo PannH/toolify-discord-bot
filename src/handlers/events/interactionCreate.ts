@@ -9,6 +9,12 @@ export default new Event('interactionCreate', async (client, interaction: Intera
 
       await slashCommand.callback.call(null, client, interaction);
 
+   } else if (interaction.isAutocomplete()) {
+
+      const autocomplete = client.autocompletes.get(interaction.commandName);
+
+      await autocomplete.callback.call(null, client, interaction);
+
    }
 
 }, false);
