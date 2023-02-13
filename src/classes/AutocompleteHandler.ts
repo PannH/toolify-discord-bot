@@ -4,7 +4,7 @@ import { readdirSync } from 'fs';
 
 export default class AutocompleteHandler extends Collection<string, Autocomplete> {
 
-   constructor(client: Client) {
+   constructor() {
 
       super();
 

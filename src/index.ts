@@ -19,6 +19,8 @@ client.login(process.env.CLIENT_TOKEN);
 
 client.handleEvents();
 
+client.handleAutocompletes();
+
 process.on('uncaughtException', (error) => {
 
    Logger.warn(`Uncaught exception: ${error.message}`);

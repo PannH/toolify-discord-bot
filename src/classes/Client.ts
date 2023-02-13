@@ -1,10 +1,11 @@
 import { Client as BaseClient, type ClientOptions } from 'discord.js';
-import { EventHandler, SlashCommandHandler } from './';
+import { EventHandler, SlashCommandHandler, AutocompleteHandler } from './';
 
 export default class Client extends BaseClient {
 
    public events: EventHandler;
    public slashCommands: SlashCommandHandler;
+   public autocompletes: AutocompleteHandler;
 
    constructor(options: ClientOptions) {
 
@@ -21,6 +22,12 @@ export default class Client extends BaseClient {
    public handleSlashCommands(): void {
 
       this.slashCommands = new SlashCommandHandler(this);
+
+   }
+
+   public handleAutocompletes(): void {
+
+      this.autocompletes = new AutocompleteHandler();
 
    }
 
