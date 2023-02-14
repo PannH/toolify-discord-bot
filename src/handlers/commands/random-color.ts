@@ -3,7 +3,7 @@ import tinycolor, { type Instance as ColorInstance } from 'tinycolor2';
 import { createCanvas } from 'canvas';
 import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, AttachmentBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, codeBlock, type StringSelectMenuInteraction } from 'discord.js';
 import { randomUUID } from 'crypto';
-import { randomInteger } from '../../functions';
+import { randomArrayElement, randomInteger } from '../../functions';
 import { minutesToMilliseconds } from 'date-fns';
 
 export default new SlashCommand({
@@ -52,6 +52,10 @@ export default new SlashCommand({
                         .setDefault(currentColorStyle === 'any')
                         .setLabel('Any')
                         .setValue('any'),
+                     new StringSelectMenuOptionBuilder()
+                        .setDefault(currentColorStyle === 'material')
+                        .setLabel('Material')
+                        .setValue('material'),
                      new StringSelectMenuOptionBuilder()
                         .setDefault(currentColorStyle === 'pastel')
                         .setLabel('Pastel')
@@ -117,6 +121,22 @@ export default new SlashCommand({
                case 'any': {
 
                   randomColor = tinycolor.random();
+                  break;
+
+               }
+
+               case 'material': {
+
+                  const baseMaterialColors = [
+                     '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
+                     '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50',
+                     '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800',
+                     '#ff5722', '#795548', '#9e9e9e', '#607d8b'
+                  ];
+
+                  const randomMaterialColor = randomArrayElement(baseMaterialColors);
+
+                  randomColor = tinycolor(randomMaterialColor).lighten(randomInteger(5, 15));
                   break;
 
                }
