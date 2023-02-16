@@ -1,5 +1,5 @@
 import { SlashCommand } from '../../classes';
-import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
+import { ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import axios from 'axios';
 
 export default new SlashCommand({

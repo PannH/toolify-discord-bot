@@ -1,5 +1,5 @@
 import { SlashCommand } from '../../classes';
-import { codeBlock, ApplicationCommandOptionType, EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } from 'discord.js';
+import { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } from 'discord.js';
 import axios from 'axios';
 import { minutesToMilliseconds } from 'date-fns';
 import { randomUUID } from 'crypto';

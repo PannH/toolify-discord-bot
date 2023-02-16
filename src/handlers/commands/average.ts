@@ -1,6 +1,5 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
-import getlorem from 'getlorem';
 
 export default new SlashCommand({
    name: 'average',

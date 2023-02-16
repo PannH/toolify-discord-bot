@@ -1,6 +1,5 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
-import { convert, type Temperature } from 'convert';
 
 export default new SlashCommand({
    name: 'binary',
