@@ -36,6 +36,7 @@
       "discord.js": "^14.7.1",
       "dotenv": "^16.0.3",
       "getlorem": "^1.0.1",
+      "mathjs": "^11.5.1",
       "qrcode": "^1.5.1",
       "tinycolor2": "^1.6.0"
    }
