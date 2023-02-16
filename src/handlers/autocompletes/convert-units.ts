@@ -1,5 +1,4 @@
 import { Autocomplete } from '../../classes';
-import { Energy } from 'convert';
 
 export default new Autocomplete('convert-units', async (client, interaction) => {
 
