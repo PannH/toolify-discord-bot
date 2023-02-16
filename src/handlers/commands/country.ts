@@ -36,7 +36,7 @@ export default new SlashCommand({
    const countryEmbed = new EmbedBuilder()
       .setColor(0x2f3136)
       .setTitle(`Country - ${country.name}`)
-      .setThumbnail(country.flag.large)
+      .setThumbnail(`https://flagcdn.com/w320/${country.alpha2Code.toLowerCase()}.png`)
       .setDescription(
          codeBlock(`Official Name | ${country.official_name}`) +
          codeBlock(`Capital       | ${country.capital}`) +
