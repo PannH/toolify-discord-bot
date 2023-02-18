@@ -16,9 +16,6 @@ export default new SlashCommand({
    const valuesString = interaction.options.getString('values');
    const values = valuesString.split(',').map((valueString) => Number(valueString));
 
-   console.log(values);
-   console.log(values.find((value) => isNaN(value)));
-
    if (values.includes(NaN))
       return interaction.reply({
          content: 'Some of the specified values are not a number.',
