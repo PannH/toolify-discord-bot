@@ -5,6 +5,7 @@ import tinycolor, { type Instance as ColorInstance} from 'tinycolor2';
 import { createCanvas } from 'canvas';
 import { randomUUID } from 'crypto';
 import { minutesToMilliseconds } from 'date-fns';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'color-palette',
@@ -88,7 +89,7 @@ export default new SlashCommand({
             const paletteImageAttachment = await createPaletteImageAttachment(colors);
    
             const paletteGeneratorEmbed = new EmbedBuilder()
-               .setColor(0x2f3136)
+               .setColor(Constants.EMBED_COLOR)
                .setTitle('Color Palette Generator')
                .setDescription(
                   codeBlock(
@@ -168,7 +169,7 @@ export default new SlashCommand({
             const paletteImageAttachment = await createPaletteImageAttachment(colors);
    
             const paletteGeneratorEmbed = new EmbedBuilder()
-               .setColor(0x2f3136)
+               .setColor(Constants.EMBED_COLOR)
                .setTitle('Color Palette Generator')
                .setDescription(
                   codeBlock(

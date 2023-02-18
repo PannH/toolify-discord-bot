@@ -1,5 +1,6 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'binary',
@@ -45,7 +46,7 @@ export default new SlashCommand({
          try {
 
             binaryEncoderEmbed = new EmbedBuilder()
-               .setColor(0x2f3136)
+               .setColor(Constants.EMBED_COLOR)
                .setTitle('Binary Encoder')
                .setDescription(
                   codeBlock(string) +
@@ -83,7 +84,7 @@ export default new SlashCommand({
          try {
 
             binaryDecoderEmbed = new EmbedBuilder()
-               .setColor(0x2f3136)
+               .setColor(Constants.EMBED_COLOR)
                .setTitle('Binary Decoder')
                .setDescription(
                   codeBlock(binaryString) +

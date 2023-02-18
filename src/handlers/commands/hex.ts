@@ -1,5 +1,6 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'hex',
@@ -41,7 +42,7 @@ export default new SlashCommand({
          try {
 
             hexEncoderEmbed = new EmbedBuilder()
-               .setColor(0x2f3136)
+               .setColor(Constants.EMBED_COLOR)
                .setTitle('HEX Encoder')
                .setDescription(
                   codeBlock(string) +
@@ -75,7 +76,7 @@ export default new SlashCommand({
          try {
 
             hexDecoderEmbed = new EmbedBuilder()
-               .setColor(0x2f3136)
+               .setColor(Constants.EMBED_COLOR)
                .setTitle('HEX Decoder')
                .setDescription(
                   codeBlock(hexString) +

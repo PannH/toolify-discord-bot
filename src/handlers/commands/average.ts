@@ -1,5 +1,6 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'average',
@@ -27,7 +28,7 @@ export default new SlashCommand({
    const average = values.reduce((acc, value) => acc + value, 0) / values.length;
 
    const averageCalculatorEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle('Average Calculator')
       .setDescription(
          codeBlock(

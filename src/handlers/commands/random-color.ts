@@ -5,6 +5,7 @@ import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, AttachmentB
 import { randomUUID } from 'crypto';
 import { randomArrayElement, randomInteger } from '../../functions';
 import { minutesToMilliseconds } from 'date-fns';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'random-color',
@@ -32,7 +33,7 @@ export default new SlashCommand({
       ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
       const colorGeneratorEmbed = new EmbedBuilder()
-         .setColor(0x2f3136)
+         .setColor(Constants.EMBED_COLOR)
          .setTitle('Random Color Generator')
          .setDescription(
             codeBlock(`HEX | ${color.toHexString()}`) +

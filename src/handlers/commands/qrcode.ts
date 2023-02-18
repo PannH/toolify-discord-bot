@@ -1,6 +1,7 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder, AttachmentBuilder } from 'discord.js';
 import qrCode from 'qrcode';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'qrcode',
@@ -25,7 +26,7 @@ export default new SlashCommand({
    const qrCodeImageAttachment = new AttachmentBuilder(qrCodeBuffer, { name: 'qr_code.png' });
 
    const qrCodeEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle('QR Code Generator')
       .setDescription(
          codeBlock(`Redirect | ${redirectText}`)

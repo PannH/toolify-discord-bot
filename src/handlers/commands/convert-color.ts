@@ -2,6 +2,7 @@ import { SlashCommand } from '../../classes';
 import tinycolor from 'tinycolor2';
 import { createCanvas } from 'canvas';
 import { EmbedBuilder, AttachmentBuilder, codeBlock, ApplicationCommandOptionType } from 'discord.js';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'convert-color',
@@ -37,7 +38,7 @@ export default new SlashCommand({
    const colorImageAttachment = new AttachmentBuilder(canvas.toBuffer(), { name: 'color.png' });
 
    const colorValuesEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle('Color Converter')
       .setDescription(
          codeBlock(`HEX | ${color.toHexString()}`) +

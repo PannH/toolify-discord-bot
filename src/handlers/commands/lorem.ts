@@ -1,6 +1,7 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import getlorem from 'getlorem';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'lorem',
@@ -66,7 +67,7 @@ export default new SlashCommand({
    try {
 
       const loremGeneratorEmbed = new EmbedBuilder()
-         .setColor(0x2f3136)
+         .setColor(Constants.EMBED_COLOR)
          .setTitle(`Lorem Ipsum Generator (${amount} ${subcommand})`)
          .setDescription(
             codeBlock(loremText)

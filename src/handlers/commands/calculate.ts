@@ -1,6 +1,7 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import { evaluate } from 'mathjs';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'calculate',
@@ -23,7 +24,7 @@ export default new SlashCommand({
    }
 
    const calculatorEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle('Calculator')
       .setDescription(
          codeBlock(expression) +

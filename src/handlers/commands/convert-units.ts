@@ -1,6 +1,7 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import { convert } from 'convert';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'convert-units',
@@ -131,7 +132,7 @@ export default new SlashCommand({
    const formattedConvertedValue = format(rawConvertedValue) === '0' ? rawConvertedValue : format(rawConvertedValue);
 
    const converterEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle(`Unit Converter (${subcommand})`)
       .setDescription(
          codeBlock(`${formattedValue} ${fromUnit}`) +

@@ -3,6 +3,7 @@ import { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowB
 import axios from 'axios';
 import { minutesToMilliseconds } from 'date-fns';
 import { randomUUID } from 'crypto';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'person-image',
@@ -32,7 +33,7 @@ export default new SlashCommand({
       const personPictureImageAttachment = new AttachmentBuilder(imageBuffer, { name: 'person_picture.png' });
    
       const personPictureEmbed = new EmbedBuilder()
-         .setColor(0x2f3136)
+         .setColor(Constants.EMBED_COLOR)
          .setTitle('Unexisting Person Picture Generator')
          .setImage('attachment://person_picture.png');
 

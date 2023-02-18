@@ -1,6 +1,7 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import { Translator, TextResult } from 'deepl-node';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'translate',
@@ -47,7 +48,7 @@ export default new SlashCommand({
    }
 
    const translatorEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle('Translator')
       .setDescription(
          codeBlock(sourceText) +

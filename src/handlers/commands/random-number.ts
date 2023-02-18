@@ -3,6 +3,7 @@ import { codeBlock, ApplicationCommandOptionType, EmbedBuilder, ActionRowBuilder
 import { randomInteger } from '../../functions';
 import { randomUUID } from 'crypto';
 import { minutesToMilliseconds } from 'date-fns';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'random-number',
@@ -42,7 +43,7 @@ export default new SlashCommand({
       const randomNumber = randomInteger(minInteger, maxInteger);
 
       const randomNumberEmbed = new EmbedBuilder()
-         .setColor(0x2f3136)
+         .setColor(Constants.EMBED_COLOR)
          .setTitle('Random Number Generator')
          .setDescription(
             codeBlock(`Minimum       | ${minInteger}`) +

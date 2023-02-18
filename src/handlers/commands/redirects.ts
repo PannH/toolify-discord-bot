@@ -1,6 +1,7 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import axios from 'axios';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'redirects',
@@ -37,7 +38,7 @@ export default new SlashCommand({
       });
 
    const redirectsEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle('Redirect Checker')
       .setDescription(
          codeBlock(`Website URL | ${url}`)

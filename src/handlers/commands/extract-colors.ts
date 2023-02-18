@@ -3,6 +3,7 @@ import tinycolor from 'tinycolor2';
 import { createCanvas } from 'canvas';
 import { EmbedBuilder, AttachmentBuilder, codeBlock, ApplicationCommandOptionType } from 'discord.js';
 import { getPaletteFromURL } from 'color-thief-node';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'extract-colors',
@@ -42,7 +43,7 @@ export default new SlashCommand({
    });
 
    const colorsEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle('Extract Colors')
       .setThumbnail(imageAttachment.url)
       .setDescription(

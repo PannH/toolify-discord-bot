@@ -1,6 +1,7 @@
 import { ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import { SlashCommand } from '../../classes';
 import axios from 'axios';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'dictionary',
@@ -32,7 +33,7 @@ export default new SlashCommand({
    };
 
    const topEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle(`Dictionary`)
       .setDescription(`${wordData.word} (${wordData.meanings[0].partOfSpeech}${wordData.phonetic ? `, ${wordData.phonetic}` : ''})`)
 
@@ -41,7 +42,7 @@ export default new SlashCommand({
    const definitionEmbeds = wordData.meanings[0].definitions.map((definition: any, index: number) => {
 
       return new EmbedBuilder()
-         .setColor(0x2f3136)
+         .setColor(Constants.EMBED_COLOR)
          .setDescription(
             `**${index + 1}.** ${definition.definition}\n` +
             (definition.example ? `e.g.: *${definition.example}*` : '')
@@ -52,7 +53,7 @@ export default new SlashCommand({
    const undisplayedDefinitionsCount = wordData.meanings[0].definitions.length - DISPLAYED_DEFINITIONS;
 
    const bottomEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle('Sources')
       .setDescription(
          (undisplayedDefinitionsCount >= 1 ? `*${undisplayedDefinitionsCount} more definition(s)...*\n` : '') +

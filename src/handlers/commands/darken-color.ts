@@ -4,6 +4,7 @@ import { createCanvas } from 'canvas';
 import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, AttachmentBuilder, codeBlock, ApplicationCommandOptionType, ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js';
 import { randomUUID } from 'crypto';
 import { minutesToMilliseconds } from 'date-fns';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'darken-color',
@@ -51,7 +52,7 @@ export default new SlashCommand({
       ctx.fillRect(WIDTH / 2, 0, WIDTH / 2, HEIGHT);
 
       const darkenColorEmbed = new EmbedBuilder()
-         .setColor(0x2f3136)
+         .setColor(Constants.EMBED_COLOR)
          .setTitle(`Darken Color`)
          .setDescription(
             codeBlock(`Base Color | ${baseColor.toHexString()}`) +

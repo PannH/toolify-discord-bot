@@ -1,6 +1,7 @@
 import { SlashCommand } from '../../classes';
 import { codeBlock, ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import axios from 'axios';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'country',
@@ -34,7 +35,7 @@ export default new SlashCommand({
    const { format } = new Intl.NumberFormat('en-US');
 
    const countryEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle(`Country - ${country.name}`)
       .setThumbnail(`https://flagcdn.com/w320/${country.alpha2Code.toLowerCase()}.png`)
       .setDescription(

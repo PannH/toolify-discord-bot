@@ -1,6 +1,7 @@
 import { SlashCommand } from '../../classes';
 import { ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
 import axios from 'axios';
+import Constants from '../../utils/Constants';
 
 export default new SlashCommand({
    name: 'animal-image',
@@ -47,7 +48,7 @@ export default new SlashCommand({
    const { data } = await axios.get(`https://some-random-api.ml/animal/${subcommand}`);
 
    const randomAnimalImageEmbed = new EmbedBuilder()
-      .setColor(0x2f3136)
+      .setColor(Constants.EMBED_COLOR)
       .setTitle(`Random Animal Image Generator (${subcommand})`)
       .setImage(data.image);
 
