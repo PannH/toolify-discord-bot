@@ -11,17 +11,12 @@ export default new SlashCommand({
       name: 'text',
       description: 'The text you want to convert to audio.',
       type: ApplicationCommandOptionType.String,
+      maxLength: 200,
       required: true
    }]
 }, async (client, interaction) => {
 
    const text = interaction.options.getString('text');
-
-   if (text.length > 200)
-      return interaction.reply({
-         content: 'The text cannot be longer than 200 characters.',
-         ephemeral: true
-      });
 
    await interaction.deferReply();
 
