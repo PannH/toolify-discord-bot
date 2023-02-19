@@ -1,6 +1,5 @@
 import { SlashCommand } from '../../classes';
-import { ApplicationCommandOptionType, codeBlock, EmbedBuilder } from 'discord.js';
-import Constants from '../../utils/Constants';
+import { ApplicationCommandOptionType } from 'discord.js';
 import { RadioBrowserApi } from 'radio-browser-api';
 import { randomUUID } from 'crypto';
 import { joinVoiceChannel, createAudioPlayer, createAudioResource, getVoiceConnection } from '@discordjs/voice';
@@ -89,7 +88,7 @@ export default new SlashCommand({
          voiceConnection.subscribe(audioPlayer);
 
          await interaction.editReply({
-            content: `Connected the radio station **${radioStation.name} (${radioStation.countryCode ? `:flag_${radioStation.countryCode.toLowerCase()}:` : ''}${radioStation.country}${radioStation.state ? `, ${radioStation.state}` : ''})** to the voice channel ${memberVoiceChannel}.`
+            content: `Connected the radio station **${radioStation.name} (${radioStation.countryCode ? `:flag_${radioStation.countryCode.toLowerCase()}: ` : ''}${radioStation.country}${radioStation.state ? `, ${radioStation.state}` : ''})** to the voice channel ${memberVoiceChannel}.`
          });
 
          break;
@@ -171,7 +170,7 @@ export default new SlashCommand({
          voiceConnection.subscribe(audioPlayer);
 
          await interaction.editReply({
-            content: `Changed the radio station to **${radioStation.name} (${radioStation.countryCode ? `:flag_${radioStation.countryCode.toLowerCase()}:` : ''}${radioStation.country}${radioStation.state ? `, ${radioStation.state}` : ''})**.`
+            content: `Changed the radio station to **${radioStation.name} (${radioStation.countryCode ? `:flag_${radioStation.countryCode.toLowerCase()}: ` : ''}${radioStation.country}${radioStation.state ? `, ${radioStation.state}` : ''})**.`
          });
 
          break;
