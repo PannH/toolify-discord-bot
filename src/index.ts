@@ -5,7 +5,7 @@ import { ActivityType } from 'discord.js';
 dotenv.config();
 
 const client = new Client({
-   intents: ['Guilds'],
+   intents: ['Guilds', 'GuildVoiceStates'],
    failIfNotExists: false,
    presence: {
       activities: [{
